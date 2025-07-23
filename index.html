@@ -4,19 +4,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HanzPlay Game - Rental PlayStation Premium di Tangerang</title>
+    <title>Gamer's Lounge for Amusement & Drinks - Rental PlayStation Premium di Tangerang</title>
     <link rel="icon" href="https://i.imgur.com/b7qxBuy.jpeg" type="image/jpeg">
+    <!-- Font Awesome untuk ikon sosial media dan hamburger -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        /* Variabel CSS */
+        /* ==========================================================================
+           Variabel CSS untuk konsistensi warna dan font
+           ========================================================================== */
         :root {
             --primary: #0d6efd;
+            /* Biru cerah */
             --secondary: #ffc107;
+            /* Kuning cerah */
             --dark: #212529;
+            /* Hitam pekat */
             --light: #f8f9fa;
+            /* Abu-abu sangat terang */
             --text-color: #333;
+            /* Warna teks standar */
+            --gradient-blue: linear-gradient(135deg, #0d6efd, #0056b3);
+            /* Gradien untuk elemen tertentu */
+            --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
-        /* Reset CSS */
+        /* ==========================================================================
+           Reset CSS dasar untuk konsistensi di berbagai browser
+           ========================================================================== */
         * {
             margin: 0;
             padding: 0;
@@ -24,12 +39,17 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        /* Global Styles */
+        /* ==========================================================================
+           Gaya Global
+           ========================================================================== */
         body {
             background-color: var(--light);
             color: var(--text-color);
             line-height: 1.6;
-            scroll-behavior: smooth; /* Smooth scroll behavior */
+            scroll-behavior: smooth;
+            /* Gulir halus ke anchor link */
+            overflow-x: hidden;
+            /* Mencegah scroll horizontal yang tidak diinginkan */
         }
 
         .container {
@@ -37,10 +57,15 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
+            /* Padding samping untuk responsivitas */
         }
 
         section {
-            padding: 60px 0;
+            padding: 80px 0;
+            /* Padding vertikal untuk setiap bagian */
+            transition: padding 0.3s ease-in-out;
+            position: relative;
+            /* Diperlukan untuk efek animasi */
         }
 
         h1,
@@ -48,22 +73,47 @@
         h3 {
             color: var(--primary);
             margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            /* Ukuran font lebih besar untuk judul utama */
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
         }
 
         p {
             margin-bottom: 15px;
         }
 
-        /* Header Styles */
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            /* Menghilangkan spasi bawah pada gambar */
+        }
+
+        /* ==========================================================================
+           Header Styles
+           ========================================================================== */
         header {
             background-color: var(--primary);
             color: white;
-            padding: 20px 0;
+            padding: 15px 0;
+            /* Padding lebih ramping untuk header */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
+            transition: background-color 0.3s ease, padding 0.3s ease;
         }
 
         .header-container {
@@ -73,26 +123,38 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 28px;
+            /* Ukuran font logo sedikit lebih besar */
             font-weight: bold;
             display: flex;
             align-items: center;
-            color: white; /* Ensure logo text is white */
-            text-decoration: none; /* Remove underline from logo link */
+            color: white;
+            text-decoration: none;
+            z-index: 1001;
         }
 
         .logo img {
-            height: 40px;
+            height: 45px;
+            /* Ukuran logo gambar sedikit lebih besar */
             margin-right: 10px;
+            filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+            /* Efek shadow pada logo */
         }
 
+        /* ==========================================================================
+           Navigation / Hamburger Menu Styles
+           ========================================================================== */
         nav ul {
-            display: flex;
             list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            /* Default: flex for desktop */
         }
 
         nav ul li {
-            margin-left: 25px;
+            margin-left: 30px;
+            /* Jarak antar item menu */
         }
 
         nav ul li a {
@@ -100,157 +162,351 @@
             text-decoration: none;
             font-weight: 500;
             transition: all 0.3s ease;
+            position: relative;
+            /* Untuk efek underline */
+            padding-bottom: 5px;
+            /* Ruang untuk underline */
         }
 
         nav ul li a:hover {
             color: var(--secondary);
+            transform: translateY(-2px);
+            /* Sedikit naik saat hover */
         }
 
-        /* Hero Section */
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--secondary);
+            left: 0;
+            bottom: 0;
+            transition: width 0.3s ease;
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        /* Hamburger menu icon */
+        .hamburger-menu {
+            display: none;
+            /* Hidden on desktop */
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            /* Area klik yang lebih besar */
+            outline: none;
+            position: relative;
+            width: 35px;
+            height: 25px;
+            z-index: 1001;
+        }
+
+        .hamburger-menu .bar {
+            display: block;
+            width: 100%;
+            height: 3px;
+            background-color: white;
+            border-radius: 2px;
+            position: absolute;
+            left: 0;
+            transition: all 0.3s ease-in-out;
+        }
+
+        .hamburger-menu .bar:nth-child(1) {
+            top: 0;
+        }
+
+        .hamburger-menu .bar:nth-child(2) {
+            top: 11px;
+            /* Sesuaikan posisi tengah */
+        }
+
+        .hamburger-menu .bar:nth-child(3) {
+            top: 22px;
+            /* Sesuaikan posisi bawah */
+        }
+
+        /* Hamburger active state (transforms into 'X') */
+        .hamburger-menu.active .bar:nth-child(1) {
+            transform: translateY(11px) rotate(45deg);
+            /* Pindah ke tengah, lalu putar */
+        }
+
+        .hamburger-menu.active .bar:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger-menu.active .bar:nth-child(3) {
+            transform: translateY(-11px) rotate(-45deg);
+            /* Pindah ke tengah, lalu putar */
+        }
+
+        /* ==========================================================================
+           Hero Section
+           ========================================================================== */
         .hero {
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/xsushTZ.jpeg') no-repeat center center/cover;
             color: white;
-            height: 80vh;
+            min-height: 85vh;
+            /* Tinggi minimum agar konten tetap terlihat di layar besar */
             display: flex;
             align-items: center;
             text-align: center;
-            margin-top: 70px;
-            /* Offset for fixed header */
+            margin-top: 75px;
+            /* Offset dari fixed header */
+            position: relative;
+            overflow: hidden;
+            /* Pastikan tidak ada scroll saat ada animasi */
         }
 
         .hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInFromBottom 1s ease-out forwards;
+            animation-delay: 0.5s;
+            position: relative;
+            z-index: 2;
+            /* Pastikan konten di atas overlay */
         }
 
         .hero h1 {
             color: white;
-            font-size: 3rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            /* Ukuran judul lebih besar */
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+            /* Tambahkan shadow untuk keterbacaan */
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            font-size: 1.35rem;
+            /* Ukuran teks paragraf lebih besar */
+            margin-bottom: 40px;
+            text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
         }
 
+        /* ==========================================================================
+           Button Styles
+           ========================================================================== */
         .btn {
             display: inline-block;
             background-color: var(--secondary);
             color: var(--dark);
-            padding: 12px 30px;
+            padding: 14px 35px;
+            /* Padding lebih besar */
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
+            font-weight: 700;
+            /* Font lebih tebal */
             transition: all 0.3s ease;
-            margin: 5px;
-            /* Added for spacing between buttons */
-            border: none; /* Ensure buttons have no default border */
-            cursor: pointer; /* Indicate button is clickable */
+            margin: 8px;
+            /* Jarak antar tombol */
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+            /* Huruf kapital */
+            letter-spacing: 0.5px;
         }
 
         .btn:hover {
-            background-color: #ffca2c;
-            /* Slightly darker yellow for hover */
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            background-color: #ffda6a;
+            /* Warna hover sedikit lebih terang */
+            transform: translateY(-5px);
+            /* Efek naik yang lebih terasa */
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
 
-        /* Section Title */
+        /* ==========================================================================
+           Section Title Styles
+           ========================================================================== */
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 60px;
+            /* Jarak bawah lebih besar */
+            transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+            position: relative;
+            padding-bottom: 10px;
+            /* Ruang untuk underline */
         }
 
         .section-title h2 {
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            color: var(--dark);
+            position: relative;
+            display: inline-block;
+            /* Agar underline hanya selebar teks */
         }
 
-        /* Services Section */
+        .section-title h2::after {
+            content: '';
+            display: block;
+            width: 70px;
+            /* Lebar underline */
+            height: 4px;
+            background-color: var(--primary);
+            margin: 10px auto 0;
+            /* Posisikan di tengah */
+            border-radius: 2px;
+        }
+
+        /* ==========================================================================
+           Services Section
+           ========================================================================== */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            /* Ukuran kartu lebih besar */
+            gap: 40px;
+            /* Jarak antar kartu lebih besar */
         }
 
         .service-card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
+            /* Sudut lebih membulat */
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: all 0.3s ease;
+            box-shadow: var(--shadow-light);
+            transition: all 0.4s ease;
+            /* Transisi lebih halus */
+            display: flex;
+            flex-direction: column;
+            /* Konten diatur dalam kolom */
+            position: relative;
         }
 
         .service-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-12px);
+            /* Efek naik yang lebih signifikan */
+            box-shadow: var(--shadow-medium);
         }
 
         .service-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
+            /* Tinggi gambar lebih seragam */
             object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .service-card img:hover {
+            transform: scale(1.05);
+            /* Zoom in gambar saat hover */
         }
 
         .service-content {
-            padding: 20px;
+            padding: 25px;
+            /* Padding konten lebih besar */
+            flex-grow: 1;
+            /* Konten mengisi sisa ruang */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            /* Untuk mendorong tombol ke bawah */
         }
 
         .service-content h3 {
-            margin-bottom: 15px;
+            margin-bottom: 10px;
             color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        .service-content p {
+            font-size: 0.95rem;
+            color: #555;
+            flex-grow: 1;
+            /* Deskripsi mengisi ruang */
         }
 
         .price {
             font-weight: bold;
             color: var(--primary);
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            /* Ukuran harga lebih menonjol */
+            margin-top: 15px;
+            margin-bottom: 20px;
         }
 
-        /* About Section */
+        .service-card .btn {
+            width: 100%;
+            /* Tombol memenuhi lebar card */
+            margin: 0;
+            /* Hapus margin agar rapi di dalam card */
+            font-size: 0.9rem;
+            padding: 10px 20px;
+        }
+
+        /* ==========================================================================
+           About Section
+           ========================================================================== */
         .about {
             background-color: #f1f8ff;
-            /* Light blue background */
+            /* Warna latar belakang sedikit berbeda */
+            padding: 100px 0;
+            /* Padding lebih besar */
         }
 
         .about-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            grid-template-columns: 1fr 1.2fr;
+            /* Konten deskripsi sedikit lebih lebar */
+            gap: 60px;
+            /* Jarak antar kolom lebih besar */
             align-items: center;
         }
 
         .about-img img {
             width: 100%;
-            border-radius: 10px;
+            border-radius: 15px;
             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
         }
 
-        /* Game Section */
-        .games-grid { /* Renamed from .games for clarity */
+        .about-img img:hover {
+            transform: scale(1.03);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.18);
+        }
+
+        /* ==========================================================================
+           Game Section
+           ========================================================================== */
+        .games-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2.5rem;
+            /* Jarak antar game card lebih besar */
             margin-top: 2rem;
         }
 
         .game-card {
             background-color: white;
-            border-radius: 8px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-light);
             transition: all 0.3s ease;
         }
 
         .game-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-medium);
         }
 
         .game-card img {
             width: 100%;
-            height: 200px;
+            height: 180px;
+            /* Tinggi gambar game */
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .game-card img:hover {
+            transform: scale(1.05);
         }
 
         .game-info {
@@ -258,21 +514,33 @@
         }
 
         .game-info h3 {
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+            margin-bottom: 0.7rem;
+            color: var(--dark);
         }
 
         .game-info p {
             color: #666;
-            margin-bottom: 1rem;
+            margin-bottom: 0;
+            /* Hapus margin bottom default */
+            font-size: 0.9rem;
         }
 
-        /* CiciFood Section Styles */
+        /* ==========================================================================
+           CiciFood Section Styles
+           ========================================================================== */
         .cici-food {
             background-color: #fff3cd;
-            /* Light yellow background */
-            padding: 60px 0;
+            /* Warna kuning yang lebih lembut */
+            padding: 80px 0;
             text-align: center;
+            border-radius: 15px;
+            /* Sudut membulat */
+            margin: 40px auto;
+            /* Margin atas dan bawah, auto untuk tengah */
+            max-width: 1000px;
+            /* Batasi lebar */
+            box-shadow: var(--shadow-light);
         }
 
         .cici-food h2 {
@@ -284,14 +552,19 @@
         }
 
         .cici-food .food-link-container p {
-            font-size: 1.1rem;
-            margin-bottom: 20px;
+            font-size: 1.2rem;
+            margin-bottom: 25px;
+            color: #555;
         }
 
-        /* Testimonials Section */
+        /* ==========================================================================
+           Testimonials Section
+           ========================================================================== */
         .testimonials {
-            background: linear-gradient(rgba(13, 110, 253, 0.9), rgba(13, 110, 253, 0.9)), url('https://placehold.co/1920x1080') no-repeat center center/cover;
+            background: var(--gradient-blue);
+            /* Gunakan gradien yang sudah didefinisikan */
             color: white;
+            padding: 100px 0;
         }
 
         .testimonials h2 {
@@ -301,197 +574,578 @@
         .testimonial-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            gap: 35px;
+            /* Jarak antar testimonial card */
         }
 
         .testimonial-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background: rgba(255, 255, 255, 0.15);
+            /* Background lebih solid tapi tetap transparan */
+            backdrop-filter: blur(8px);
+            /* Blur lebih lembut */
+            padding: 35px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
         }
 
         .testimonial-card .quote {
             font-style: italic;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            text-align: center;
+            /* Teks kutipan di tengah */
         }
 
         .testimonial-card .author {
             font-weight: bold;
             display: flex;
             align-items: center;
+            margin-top: auto;
+            /* Dorong ke bawah */
+            justify-content: center;
+            /* Pusatkan di mobile/desktop */
+            padding-top: 15px;
+            /* Pemisah dari quote */
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .testimonial-card .author img {
-            width: 50px;
-            height: 50px;
+            width: 60px;
+            /* Ukuran gambar author lebih besar */
+            height: 60px;
             border-radius: 50%;
             margin-right: 15px;
             object-fit: cover;
+            border: 3px solid var(--secondary);
+            /* Border kuning pada gambar author */
         }
 
-        /* Contact Section */
+        /* ==========================================================================
+           Contact Section
+           ========================================================================== */
         .contact-form {
             background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            max-width: 600px; /* Limit form width for better readability */
-            margin: 0 auto; /* Center the form */
+            padding: 50px;
+            /* Padding lebih besar */
+            border-radius: 15px;
+            box-shadow: var(--shadow-medium);
+            /* Shadow lebih menonjol */
+            max-width: 700px;
+            /* Lebar form lebih besar */
+            margin: 0 auto;
+            text-align: center;
+            /* Pusatkan tombol submit */
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            /* Jarak antar form group */
+            text-align: left;
+            /* Teks label tetap kiri */
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
+            margin-bottom: 8px;
+            /* Jarak antara label dan input */
+            font-weight: 600;
+            /* Label lebih tebal */
+            color: var(--dark);
+            font-size: 1.1rem;
         }
 
         .form-group input,
         .form-group textarea,
         .form-group select {
             width: 100%;
-            padding: 12px;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-            font-size: 16px;
+            padding: 14px;
+            /* Padding input lebih besar */
+            border: 1px solid #ccc;
+            /* Border lebih soft */
+            border-radius: 8px;
+            /* Sudut lebih membulat */
+            font-size: 17px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
+            /* Shadow focus yang lebih halus */
+            outline: none;
         }
 
         .form-group textarea {
-            height: 120px;
+            height: 150px;
+            /* Tinggi textarea lebih besar */
             resize: vertical;
-            /* Allow vertical resizing */
         }
 
-        /* Footer */
+        .contact-form .btn {
+            width: auto;
+            /* Biarkan tombol mengambil lebar sesuai konten */
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            margin-top: 20px;
+        }
+
+        /* ==========================================================================
+           Footer Styles
+           ========================================================================== */
         footer {
             background-color: var(--dark);
             color: white;
-            padding: 40px 0 20px;
+            padding: 60px 0 30px;
+            /* Padding lebih besar */
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+            /* Kolom footer lebih lebar */
+            gap: 40px;
+            /* Jarak antar kolom footer */
+            margin-bottom: 50px;
+            text-align: left;
         }
 
         .footer-col h3 {
             color: white;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
+            font-size: 1.5rem;
+            position: relative;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--secondary);
+            margin-top: 10px;
+            border-radius: 2px;
+        }
+
+        .footer-col p,
+        .footer-col address {
+            color: #adb5bd;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
         }
 
         .footer-col ul {
             list-style: none;
+            padding: 0;
         }
 
         .footer-col ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .footer-col ul li a {
             color: #adb5bd;
-            /* Lighter gray for links */
             text-decoration: none;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .footer-col ul li a:hover {
             color: white;
+            transform: translateX(5px);
+            /* Efek geser saat hover */
+            display: inline-block;
         }
 
         .social-links {
             display: flex;
-            gap: 15px;
+            gap: 18px;
+            /* Jarak antar ikon sosial */
+            margin-top: 20px;
         }
 
         .social-links a {
             color: white;
-            background: rgba(255, 255, 255, 0.1);
-            width: 40px;
-            height: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            /* Warna background ikon lebih terang */
+            width: 45px;
+            /* Ukuran ikon lebih besar */
+            height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.2rem;
+            /* Ukuran ikon */
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             background: var(--primary);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            /* Efek naik dan sedikit membesar */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
         .copyright {
             text-align: center;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 25px;
+            border-top: 1px solid rgba(255, 255, 255, 0.15);
             color: #adb5bd;
-            font-size: 14px;
+            font-size: 15px;
+            margin-top: 30px;
         }
 
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .header-container {
-                flex-direction: column;
+        .footer-map {
+            width: 100%;
+            height: 280px;
+            /* Tinggi peta lebih besar */
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .footer-map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            border-radius: 12px;
+        }
+
+        /* ==========================================================================
+           Keyframe Animations
+           ========================================================================== */
+        @keyframes fadeInFromBottom {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ==========================================================================
+           Responsive Styles
+           ========================================================================== */
+        /* Tablets and smaller desktops */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 3rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.15rem;
             }
 
             nav ul {
-                margin-top: 20px;
+                display: none;
+                /* Hide full navigation on smaller screens by default */
+            }
+
+            .hamburger-menu {
+                display: block;
+                /* Show hamburger on smaller screens */
+            }
+
+            .hero {
+                height: 70vh;
+                /* Adjust hero height */
+                margin-top: 65px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+                /* Single column layout for about section */
+                gap: 40px;
+            }
+
+            .about-img {
+                order: -1;
+                /* Image appears first on mobile */
+                text-align: center;
+            }
+
+            .about-content {
+                text-align: center;
+                /* Pusatkan teks tentang kami */
+            }
+
+            .about-content p {
+                max-width: 600px;
+                /* Batasi lebar paragraf agar tidak terlalu panjang */
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .footer-grid {
+                text-align: center;
+                /* Pusatkan footer di mobile */
+            }
+
+            .footer-col h3::after {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+        }
+
+        /* Main breakpoint for mobile responsiveness */
+        @media (max-width: 768px) {
+            header {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 24px;
+            }
+
+            .logo img {
+                height: 35px;
+            }
+
+            /* Mobile navigation (slides from right) */
+            nav ul {
+                display: flex;
+                flex-direction: column;
+                position: fixed;
+                top: 0;
+                right: -300px;
+                /* Off-screen */
+                width: 300px;
+                /* Width of the sliding menu */
+                height: 100%;
+                background-color: var(--primary);
+                box-shadow: -8px 0 20px rgba(0, 0, 0, 0.4);
+                padding-top: 100px;
+                /* Space for logo/close button */
+                transition: right 0.4s ease-in-out;
+                z-index: 999;
+                align-items: center;
+                /* Pusatkan item menu */
+            }
+
+            nav ul.active {
+                right: 0;
             }
 
             nav ul li {
-                margin-left: 15px;
+                margin: 15px 0;
+                /* Vertical spacing */
+                width: 80%;
+                /* Lebar item menu */
+            }
+
+            nav ul li a {
+                padding: 12px 20px;
+                text-align: center;
+                border-radius: 8px;
+                /* Sudut membulat pada link menu */
+            }
+
+            nav ul li a:hover {
+                background-color: rgba(255, 255, 255, 0.15);
+            }
+
+            .hero {
+                height: 60vh;
+                margin-top: 60px;
             }
 
             .hero h1 {
                 font-size: 2.5rem;
             }
 
-            .about-grid {
-                grid-template-columns: 1fr;
+            .hero p {
+                font-size: 1rem;
             }
 
-            .about-img {
-                order: -1;
-                /* Puts image above text on small screens */
+            .btn {
+                padding: 10px 25px;
+                font-size: 0.9rem;
+            }
+
+            section {
+                padding: 60px 0;
+                /* Reduce section padding */
+            }
+
+            .section-title {
+                margin-bottom: 40px;
+            }
+
+            .services-grid,
+            .games-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+                /* Single column layout for all grids */
+                gap: 30px;
+            }
+
+            .service-card,
+            .game-card,
+            .testimonial-card {
+                margin: 0 auto;
+                /* Pusatkan kartu */
+                max-width: 400px;
+                /* Batasi lebar kartu di mobile */
+            }
+
+            .cici-food {
+                padding: 40px 20px;
+            }
+
+            .cici-food .food-link-container p {
+                font-size: 1.05rem;
+            }
+
+            .contact-form {
+                padding: 30px 20px;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 10px;
+                font-size: 16px;
+            }
+
+            .contact-form .btn {
+                padding: 12px 30px;
+                font-size: 1rem;
             }
         }
 
-        @media (max-width: 576px) {
+        /* Even smaller phones */
+        @media (max-width: 480px) {
+            .logo {
+                font-size: 20px;
+            }
+
+            .logo img {
+                height: 30px;
+            }
+
+            .hamburger-menu {
+                width: 28px;
+                height: 18px;
+            }
+
+            .hamburger-menu .bar:nth-child(2) {
+                top: 7px;
+            }
+
+            .hamburger-menu .bar:nth-child(3) {
+                top: 14px;
+            }
+
+            .hamburger-menu.active .bar:nth-child(1) {
+                transform: translateY(7px) rotate(45deg);
+            }
+
+            .hamburger-menu.active .bar:nth-child(3) {
+                transform: translateY(-7px) rotate(-45deg);
+            }
+
+            nav ul {
+                width: 250px;
+                /* Lebar menu samping lebih kecil */
+            }
+
+            .hero {
+                height: 55vh;
+            }
+
             .hero h1 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
 
-            nav ul li {
-                margin-left: 10px;
+            .hero p {
+                font-size: 0.9rem;
             }
 
-            .footer-grid {
-                grid-template-columns: 1fr; /* Stack footer columns on very small screens */
-                text-align: center;
+            .btn {
+                padding: 8px 18px;
+                font-size: 0.85rem;
             }
 
-            .social-links {
-                justify-content: center; /* Center social links on small screens */
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            h3 {
+                font-size: 1.4rem;
+            }
+
+            .service-content h3 {
+                font-size: 1.2rem;
+            }
+
+            .price {
+                font-size: 1.1rem;
+            }
+
+            .testimonial-card .quote {
+                font-size: 0.9rem;
+            }
+
+            .testimonial-card .author img {
+                width: 50px;
+                height: 50px;
+            }
+
+            .footer-col h3 {
+                font-size: 1.3rem;
+            }
+
+            .footer-map {
+                height: 200px;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- ==========================================================================
+         Header Section
+         ========================================================================== -->
     <header>
         <div class="container header-container">
-            <a href="#home" class="logo" aria-label="HanzPlay Home">
-                <img src="https://i.imgur.com/b7qxBuy.jpeg" alt="HanzPlay Logo - Modern blue and yellow gaming controller icon" />
-                HanzPlay
+            <a href="#home" class="logo" aria-label="GLAD Home">
+                <img src="https://i.imgur.com/BS9NrUm.png"
+                    alt="GLAD Logo - Modern blue and yellow gaming controller icon" loading="lazy" />
+                GLAD
             </a>
-            <nav aria-label="Main Navigation">
+            <button class="hamburger-menu" aria-label="Toggle navigation">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+            <nav aria-label="Main Navigation" id="main-nav">
                 <ul>
                     <li><a href="#home">Beranda</a></li>
                     <li><a href="#services">Layanan</a></li>
@@ -505,15 +1159,22 @@
     </header>
 
     <main>
+        <!-- ==========================================================================
+             Hero Section
+             ========================================================================== -->
         <section class="hero" id="home">
             <div class="container hero-content">
                 <h1>Rental PlayStation Terbaik di Kota Tangerang</h1>
-                <p>Rasakan pengalaman gaming premium dengan PlayStation 4 dan PlayStation 5 terbaru. Ruang nyaman, koneksi internet cepat, dan koleksi game terlengkap.</p>
+                <p>Rasakan pengalaman gaming premium dengan PlayStation 4 dan PlayStation 5 terbaru. Ruang nyaman,
+                    koneksi internet cepat, dan koleksi game terlengkap.</p>
                 <a href="#services" class="btn">Lihat Layanan</a>
                 <a href="#cici-food" class="btn">Solusi Lapar</a>
             </div>
         </section>
 
+        <!-- ==========================================================================
+             Services Section
+             ========================================================================== -->
         <section id="services">
             <div class="container">
                 <div class="section-title">
@@ -522,16 +1183,21 @@
                 </div>
                 <div class="services-grid">
                     <div class="service-card">
-                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25615694/ps5pronew.jpg?quality=90&strip=all&crop=0,0.45045045045045,100,99.099099099099" alt="PlayStation 5 with DualSense controller on a modern gaming setup with LED lights" loading="lazy" />
+                        <img src="https://platform.theverge.com/wp-content/uploads/sites/2/chorus/uploads/chorus_asset/file/25615694/ps5pronew.jpg?quality=90&strip=all&crop=0,0.45045045045045,100,99.099099099099"
+                            alt="PlayStation 5 with DualSense controller on a modern gaming setup with LED lights"
+                            loading="lazy" />
                         <div class="service-content">
                             <h3>PlayStation 5 PRO</h3>
-                            <p>Pengalaman next-gen gaming dengan 4K 120fps, ray tracing, dan controller DualSense haptic feedback.</p>
+                            <p>Pengalaman next-gen gaming dengan 4K 120fps, ray tracing, dan controller DualSense haptic
+                                feedback.</p>
                             <p class="price">Rp 50.000/jam</p>
                             <a href="#contact" class="btn">Pesan Sekarang</a>
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1568/15683559/3153252-ps4pro-review-thumb.jpg" alt="PlayStation 4 Pro console with multiple game discs on a dark wood surface" loading="lazy" />
+                        <img src="https://www.gamespot.com/a/uploads/screen_kubrick/1568/15683559/3153252-ps4pro-review-thumb.jpg"
+                            alt="PlayStation 4 Pro console with multiple game discs on a dark wood surface"
+                            loading="lazy" />
                         <div class="service-content">
                             <h3>PlayStation 4 PRO</h3>
                             <p>Gaming 4K pada konsol legendaris dengan koleksi game eksklusif terlengkap.</p>
@@ -540,7 +1206,8 @@
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="https://static1.pocketlintimages.com/wordpress/wp-content/uploads/2025/03/ps3-feature-image.jpg" alt="PlayStation 3 console with a classic controller" loading="lazy" />
+                        <img src="https://static1.pocketlintimages.com/wordpress/wp-content/uploads/2025/03/ps3-feature-image.jpg"
+                            alt="PlayStation 3 console with a classic controller" loading="lazy" />
                         <div class="service-content">
                             <h3>PlayStation 3</h3>
                             <p>Fitur backward compatibility kemampuan memainkan game dalam resolusi 1080p (Full HD).</p>
@@ -549,7 +1216,9 @@
                         </div>
                     </div>
                     <div class="service-card">
-                        <img src="https://image.api.playstation.com/pr/bam-art/172/156/23efc576-800a-44bd-bf24-208017bdcc5a.jpg?w=440" alt="Comfortable gaming lounge with multiple PlayStation setups and gaming chairs" loading="lazy" />
+                        <img src="https://image.api.playstation.com/pr/bam-art/172/156/23efc576-800a-44bd-bf24-208017bdcc5a.jpg?w=440"
+                            alt="Comfortable gaming lounge with multiple PlayStation setups and gaming chairs"
+                            loading="lazy" />
                         <div class="service-content">
                             <h3>VIP Room</h3>
                             <p>Ruang privat untuk 4 pemain dengan 2 PlayStation, sofa premium, dan minuman gratis.</p>
@@ -561,79 +1230,105 @@
             </div>
         </section>
 
+        <!-- ==========================================================================
+             About Section
+             ========================================================================== -->
         <section class="about" id="about">
             <div class="container">
                 <div class="about-grid">
                     <div class="about-content">
-                        <h2>Tentang HanzPlay</h2>
-                        <p>HanzPlay adalah tempat rental PlayStation premium yang didirikan pada tahun 2020 dengan misi memberikan pengalaman gaming terbaik kepada pelanggan.</p>
-                        <p>Kami menyediakan konsol terbaru dengan kondisi prima, monitor high refresh rate, dan koneksi internet cepat untuk gaming online. Staf kami yang ramah selalu siap membantu Anda dengan segala kebutuhan gaming.</p>
-                        <p>Temukan komunitas gamers yang bersahabat dan nikmati berbagai turnamen bulanan dengan hadiah menarik.</p>
+                        <h2>Tentang GLAD</h2>
+                        <p>GLAD adalah tempat rental PlayStation premium yang didirikan pada tahun 2020 dengan misi
+                            memberikan pengalaman gaming terbaik kepada pelanggan.</p>
+                        <p>Kami menyediakan konsol terbaru dengan kondisi prima, monitor high refresh rate, dan koneksi
+                            internet cepat untuk gaming online. Staf kami yang ramah selalu siap membantu Anda dengan
+                            segala kebutuhan gaming.</p>
+                        <p>Temukan komunitas gamers yang bersahabat dan nikmati berbagai turnamen bulanan dengan hadiah
+                            menarik.</p>
                     </div>
                     <div class="about-img">
-                        <img src="https://i.imgur.com/b7qxBuy.jpeg" alt="Interior of HanzPlay gaming lounge with neon lights, multiple gaming stations, and comfortable seating" loading="lazy" />
+                        <img src="https://i.imgur.com/zzkzXaU.jpeg"
+                            alt="Interior of GLAD gaming lounge with neon lights, multiple gaming stations, and comfortable seating"
+                            loading="lazy" />
                     </div>
                 </div>
             </div>
         </section>
 
+        <!-- ==========================================================================
+             Games Section
+             ========================================================================== -->
         <section id="games">
             <div class="container">
                 <div class="section-title">
                     <h2>Game Populer</h2>
-                    <p>Pilihan game terbaru dan terpopuler di HanzPlay</p>
+                    <p>Pilihan game terbaru dan terpopuler di GLAD</p>
                 </div>
                 <div class="games-grid">
                     <div class="game-card">
-                        <img src="https://i.imgur.com/alqfEIk.jpeg" alt="Game FIFA 23 cover with football stadium scene" loading="lazy" />
+                        <img src="https://i.imgur.com/alqfEIk.jpeg" alt="Game FIFA 23 cover with football stadium scene"
+                            loading="lazy" />
                         <div class="game-info">
                             <h3>FIFA 23</h3>
-                            <p>Pengalaman sepakbola terbaik dengan grafis ultra-realistik dan tim dari seluruh dunia.</p>
+                            <p>Pengalaman sepakbola terbaik dengan grafis ultra-realistik dan tim dari seluruh dunia.
+                            </p>
                         </div>
                     </div>
                     <div class="game-card">
-                        <img src="https://i.imgur.com/CHVTkkJ.jpeg" alt="God of War Ragnarök promotional art with Kratos and Atreus" loading="lazy" />
+                        <img src="https://i.imgur.com/CHVTkkJ.jpeg"
+                            alt="God of War Ragnarök promotional art with Kratos and Atreus" loading="lazy" />
                         <div class="game-info">
                             <h3>God of War Ragnarök</h3>
                             <p>Petualangan epik Kratos dan Atreus dalam mitologi Norse.</p>
                         </div>
                     </div>
                     <div class="game-card">
-                        <img src="https://i.imgur.com/D1oZAWE.jpeg" alt="Spider-Man Miles Morales swinging through New York City" loading="lazy" />
+                        <img src="https://i.imgur.com/D1oZAWE.jpeg"
+                            alt="Spider-Man Miles Morales swinging through New York City" loading="lazy" />
                         <div class="game-info">
                             <h3>Spider-Man: Miles Morales</h3>
                             <p>Temukan kekuatan baru Miles Morales dalam kisah Spider-Man yang mendebarkan.</p>
                         </div>
                     </div>
                     <div class="game-card">
-                        <img src="https://i.imgur.com/KMqzDno.jpeg" alt="Horizon Forbidden West Aloy fighting robotic creatures" loading="lazy" />
+                        <img src="https://i.imgur.com/KMqzDno.jpeg"
+                            alt="Horizon Forbidden West Aloy fighting robotic creatures" loading="lazy" />
                         <div class="game-info">
                             <h3>Horizon Forbidden West</h3>
-                            <p>Jelajahi dunia pasca-apokaliptik yang menakjubkan dengan makhluk mesin yang menakutkan.</p>
+                            <p>Jelajahi dunia pasca-apokaliptik yang menakjubkan dengan makhluk mesin yang menakutkan.
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <hr>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 60px auto; width: 80%; max-width: 900px;">
 
+        <!-- ==========================================================================
+             CiciFood Section
+             ========================================================================== -->
         <section class="cici-food" id="cici-food">
             <div class="container">
                 <div class="section-title">
                     <h2>Lapar Ketika Nge-Game?</h2>
-                    <p>Jangan khawatir! HanzPlay bekerja sama dengan **CiciFood** untuk menyediakan berbagai pilihan makanan dan minuman yang lezat.</p>
+                    <p>Jangan khawatir! GLAD bekerja sama dengan <strong>CiciFood</strong> untuk menyediakan berbagai
+                        pilihan makanan dan minuman yang lezat.</p>
                 </div>
                 <div class="food-link-container">
                     <p>Klik tombol di bawah ini untuk melihat menu lengkap dan memesan langsung:</p>
-                    <a href="https://aprnsyhh.github.io/CiciFood/" target="_blank" class="btn">Kunjungi Solusinya!</a>
-                    <p style="font-size: 0.9em; margin-top: 10px; color: #666;">*(Solusi Lapar Ketika Bermain)*</p>
+                    <a href="#" id="ciciFoodLink" class="btn"
+                        data-target-url="https://aprnsyhh.github.io/CiciFood/">Kunjungi Solusinya!</a>
+                    <p style="font-size: 0.95em; margin-top: 15px; color: #777;">*(Solusi Lapar Ketika Bermain)*</p>
                 </div>
             </div>
         </section>
 
-        <hr>
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 60px auto; width: 80%; max-width: 900px;">
 
+        <!-- ==========================================================================
+             Testimonials Section
+             ========================================================================== -->
         <section class="testimonials" id="testimonials">
             <div class="container">
                 <div class="section-title">
@@ -642,23 +1337,29 @@
                 </div>
                 <div class="testimonial-grid">
                     <div class="testimonial-card">
-                        <p class="quote">"Tempat paling nyaman buat ngegame, PS5-nya kencang banget dan paket VIP nya worth it banget buat main bareng temen!"</p>
+                        <p class="quote">"Tempat paling nyaman buat ngegame, PS5-nya kencang banget dan paket VIP nya
+                            worth it banget buat main bareng temen!"</p>
                         <div class="author">
-                            <img src="https://i.imgur.com/EmeIeWN.jpeg" alt="Portrait of Dafkot, a young man smiling in a casual t-shirt" loading="lazy" />
+                            <img src="https://i.imgur.com/EmeIeWN.jpeg"
+                                alt="Portrait of Dafkot, a young man smiling in a casual t-shirt" loading="lazy" />
                             <span>Dafkot, 20 tahun</span>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <p class="quote">"Harganya terjangkau untuk kualitas yang diberikan. Stafnya ramah dan selalu update game terbaru. Recomended!"</p>
+                        <p class="quote">"Harganya terjangkau untuk kualitas yang diberikan. Stafnya ramah dan selalu
+                            update game terbaru. Recomended!"</p>
                         <div class="author">
-                            <img src="https://placehold.co/100x100" alt="Portrait of Dewi, a woman with glasses smiling confidently" loading="lazy" />
+                            <img src="https://i.imgur.com/your-image-for-dewi.jpeg"
+                                alt="Portrait of Dewi, a woman with glasses smiling confidently" loading="lazy" />
                             <span>Dewi, 25 tahun</span>
                         </div>
                     </div>
                     <div class="testimonial-card">
-                        <p class="quote">"Tempat langganan saya buat main PS setiap weekend. Ruangannya bersih dan nyaman, koneksi internetnya stabil buat online gaming."</p>
+                        <p class="quote">"Tempat langganan saya buat main PS setiap weekend. Ruangannya bersih dan
+                            nyaman, koneksi internetnya stabil buat online gaming."</p>
                         <div class="author">
-                            <img src="https://placehold.co/100x100" alt="Portrait of Raka, a teenage boy wearing a gaming headset" loading="lazy" />
+                            <img src="https://i.imgur.com/your-image-for-raka.jpeg"
+                                alt="Portrait of Raka, a teenage boy wearing a gaming headset" loading="lazy" />
                             <span>Raka, 17 tahun</span>
                         </div>
                     </div>
@@ -666,6 +1367,9 @@
             </div>
         </section>
 
+        <!-- ==========================================================================
+             Contact Section
+             ========================================================================== -->
         <section id="contact">
             <div class="container">
                 <div class="section-title">
@@ -679,194 +1383,246 @@
                             <input type="text" id="name" name="name" required placeholder="Masukkan nama lengkap Anda">
                         </div>
                         <div class="form-group">
-                            <label for="phone">Nomor HP</label>
-                            <input type="tel" id="phone" name="phone" required pattern="[0-9]{10,15}" placeholder="Contoh: 081234567890">
-                            <small>Format: Hanya angka, 10-15 digit.</small>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required
+                                placeholder="Masukkan alamat email Anda">
                         </div>
                         <div class="form-group">
-                            <label for="service">Layanan</label>
+                            <label for="phone">Nomor Telepon (WhatsApp)</label>
+                            <input type="tel" id="phone" name="phone" required placeholder="Contoh: 081234567890">
+                        </div>
+                        <div class="form-group">
+                            <label for="service">Pilih Layanan</label>
                             <select id="service" name="service" required>
-                                <option value="">Pilih layanan</option>
-                                <option value="ps5">PlayStation 5 PRO - Rp50.000/jam</option>
-                                <option value="ps4">PlayStation 4 PRO - Rp30.000/jam</option>
-                                <option value="ps3">PlayStation 3 - Rp15.000/jam</option>
-                                <option value="vip">VIP Room - Rp150.000/jam</option>
+                                <option value="">-- Pilih Layanan --</option>
+                                <option value="ps5-pro">PlayStation 5 PRO (Rp 50.000/jam)</option>
+                                <option value="ps4-pro">PlayStation 4 PRO (Rp 30.000/jam)</option>
+                                <option value="ps3">PlayStation 3 (Rp 15.000/jam)</option>
+                                <option value="vip-room">VIP Room (Rp 150.000/jam)</option>
                             </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="duration">Durasi Rental (jam)</label>
+                            <input type="number" id="duration" name="duration" min="1" value="1" required>
                         </div>
                         <div class="form-group">
                             <label for="date">Tanggal Booking</label>
                             <input type="date" id="date" name="date" required>
                         </div>
                         <div class="form-group">
-                            <label for="time">Waktu Mulai</label>
+                            <label for="time">Waktu Booking</label>
                             <input type="time" id="time" name="time" required>
                         </div>
                         <div class="form-group">
-                            <label for="duration">Durasi (jam)</label>
-                            <input type="number" id="duration" name="duration" min="1" max="8" value="1" required>
+                            <label for="message">Pesan Tambahan (Opsional)</label>
+                            <textarea id="message" name="message" rows="5"
+                                placeholder="Tuliskan pertanyaan atau permintaan khusus Anda"></textarea>
                         </div>
-                        <div class="form-group">
-                            <label for="notes">Catatan Tambahan</label>
-                            <textarea id="notes" name="notes" placeholder="Tulis catatan tambahan Anda di sini..."></textarea>
-                        </div>
-                        <button type="submit" class="btn">Order Sekarang</button>
+                        <button type="submit" class="btn">Kirim Pesanan</button>
                     </form>
                 </div>
             </div>
         </section>
     </main>
 
+    <!-- ==========================================================================
+         Footer Section
+         ========================================================================== -->
     <footer>
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>HanzPlay</h3>
-                    <p>Tempat rental PlayStation premium dengan pengalaman gaming terbaik di kota Anda.</p>
-                    <div class="social-links">
-                        <a href="https://www.instagram.com/putrawildar" target="_blank" rel="noopener noreferrer" aria-label="Instagram HanzPlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
-                                <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
-                            </svg>
-                        </a>
-                        <a href="https://www.facebook.com/putrawildar" target="_blank" rel="noopener noreferrer" aria-label="Facebook HanzPlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
-                                <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
-                            </svg>
-                        </a>
-                        <a href="https://wa.me/6285716071641" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp HanzPlay">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-whatsapp" viewBox="0 0 16 16">
-                                <path d="M13.601 2.326A7.85 7.85 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.9 7.9 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.9 7.9 0 0 0 13.6 2.326zM7.994 14.521a6.6 6.6 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.56 6.56 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592m3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.73.73 0 0 0-.529.247c-.182.198-.691.677-.691 1.654s.71 1.916.81 2.049c.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232" />
-                            </svg>
-                        </a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Jam Buka</h3>
-                    <ul>
-                        <li>Senin-Jumat: 10:00 - 22:00</li>
-                        <li>Sabtu-Minggu: 09:00 - 00:00</li>
-                        <li>Libur Nasional: Buka</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Kontak</h3>
-                    <address>
-                        <ul>
-                            <li>Jl. Gaming No. 123, Kota Tangerang</li>
-                            <li><a href="mailto:info@hanzplay.com">info@hanzplay.com</a></li>
-                            <li><a href="tel:+6281234567890">0812-3456-7890</a></li>
-                        </ul>
-                    </address>
+        <div class="container footer-grid">
+            <div class="footer-col">
+                <h3>GLAD Lounge</h3>
+                <p>Pengalaman gaming premium dengan konsol dan layanan terbaik di Tangerang.</p>
+                <address>
+                    Jl. Contoh No. 123, Kota Tangerang, Banten 15111
+                </address>
+                <p>Email: info@glad.com</p>
+                <p>Telepon: (021) 1234 5678</p>
+            </div>
+            <div class="footer-col">
+                <h3>Tautan Cepat</h3>
+                <ul>
+                    <li><a href="#home">Beranda</a></li>
+                    <li><a href="#services">Layanan</a></li>
+                    <li><a href="#about">Tentang Kami</a></li>
+                    <li><a href="#games">Game Populer</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#contact">Order Booking</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Ikuti Kami</h3>
+                <p>Dapatkan update terbaru dan promo menarik!</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/gladlounge" target="_blank" aria-label="Facebook"><i
+                            class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/gladlounge" target="_blank" aria-label="Instagram"><i
+                            class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com/gladlounge" target="_blank" aria-label="Twitter"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/6285716071641" target="_blank" aria-label="WhatsApp"><i
+                            class="fab fa-whatsapp"></i></a>
                 </div>
             </div>
-            <div class="copyright">
-                <p>&copy; 2025 HanzPlay. All Rights Reserved.</p>
+            <div class="footer-col">
+                <h3>Lokasi Kami</h3>
+                <div class="footer-map">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.273678037303!2d106.63583691476918!3d-6.2297280954848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f8c6d7d5d5d5%3A0x6d5c6d5c6d5c6d5c!2sTangerang%20City!5e0!3m2!1sen!2sid!4v1625000000000!5m2!1sen!2sid"
+                        allowfullscreen="" loading="lazy"></iframe>
+                </div>
             </div>
+        </div>
+        <div class="copyright">
+            &copy; <span id="currentYear"></span> GLAD. All rights reserved.
         </div>
     </footer>
 
+    <!-- ==========================================================================
+         JavaScript
+         ========================================================================== -->
     <script>
-        // Smooth Scrolling for Navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                const headerOffset = document.querySelector('header').offsetHeight; // Get header height
-                const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                const offsetPosition = elementPosition - headerOffset - 20; // Adjust for header and a little padding
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cache DOM elements
+            const hamburger = document.querySelector('.hamburger-menu');
+            const navMenu = document.getElementById('main-nav').querySelector('ul');
+            const navLinks = document.querySelectorAll('#main-nav ul li a');
+            const header = document.querySelector('header');
+            const bookingForm = document.getElementById('bookingForm');
+            const ciciFoodLink = document.getElementById('ciciFoodLink');
+            const currentYearSpan = document.getElementById('currentYear');
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
+            // Set current year in footer
+            currentYearSpan.textContent = new Date().getFullYear();
+
+            /**
+             * Toggles the mobile navigation menu and hamburger icon.
+             */
+            hamburger.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                hamburger.classList.toggle('active');
+            });
+
+            /**
+             * Closes the mobile navigation when a link is clicked.
+             */
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
                 });
             });
-        });
 
-        // Form Submission
-        document.getElementById('bookingForm').addEventListener('submit', function (e) {
-            e.preventDefault();
+            /**
+             * Shrinks the header on scroll.
+             */
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.padding = '10px 0';
+                    header.style.backgroundColor = 'rgba(13, 110, 253, 0.95)'; // Sedikit transparan saat scroll
+                } else {
+                    header.style.padding = '15px 0';
+                    header.style.backgroundColor = 'var(--primary)';
+                }
+            });
 
-            // Get form values
-            const name = document.getElementById('name').value;
-            const phone = document.getElementById('phone').value;
-            const service = document.getElementById('service').value;
-            const date = document.getElementById('date').value;
-            const time = document.getElementById('time').value;
-            const duration = parseInt(document.getElementById('duration').value, 10);
-            const notes = document.getElementById('notes').value;
+            /**
+             * Implements smooth scrolling for all anchor links.
+             */
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
 
-            // Basic validation
-            if (!name || !phone || !service || !date || !time || !duration) {
-                alert('Mohon lengkapi semua kolom yang wajib diisi!');
-                return;
-            }
-            if (isNaN(duration) || duration < 1 || duration > 8) {
-                alert('Durasi harus angka antara 1 dan 8 jam.');
-                return;
-            }
+            /**
+             * Handles the booking form submission.
+             * Form data is formatted and sent via WhatsApp.
+             */
+            bookingForm.addEventListener('submit', function (event) {
+                event.preventDefault(); // Prevent default form submission
 
-            // Prepare WhatsApp message
-            const serviceText = {
-                'ps5': 'PlayStation 5 PRO - Rp50.000/jam',
-                'ps4': 'PlayStation 4 PRO - Rp30.000/jam',
-                'ps3': 'PlayStation 3 - Rp15.000/jam',
-                'vip': 'VIP Room - Rp150.000/jam'
-            }[service];
+                // Get form values
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const service = document.getElementById('service').value;
+                const duration = document.getElementById('duration').value;
+                const date = document.getElementById('date').value;
+                const time = document.getElementById('time').value;
+                const message = document.getElementById('message').value;
 
-            const servicePrices = {
-                'ps5': 50000,
-                'ps4': 30000,
-                'ps3': 15000,
-                'vip': 150000
+                // Simple validation
+                if (!name || !email || !phone || !service || !duration || !date || !time) {
+                    alert('Mohon lengkapi semua kolom yang wajib diisi!');
+                    return;
+                }
+
+                // Format the message for WhatsApp
+                const whatsappMessage = `Halo GLAD Lounge, saya ingin melakukan booking dengan detail berikut:%0A%0A` +
+                    `*Nama:* ${name}%0A` +
+                    `*Email:* ${email}%0A` +
+                    `*Telepon (WA):* ${phone}%0A` +
+                    `*Layanan:* ${service}%0A` +
+                    `*Durasi:* ${duration} jam%0A` +
+                    `*Tanggal:* ${date}%0A` +
+                    `*Waktu:* ${time}%0A` +
+                    `*Pesan Tambahan:* ${message || '-'}%0A%0A` +
+                    `Mohon konfirmasinya. Terima kasih!`;
+
+                // Replace with your actual WhatsApp number
+                const whatsappNumber = '6285716071641'; // Example: 62 for Indonesia, remove leading 0
+
+                const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+                window.open(whatsappUrl, '_blank'); // Open in a new tab
+
+                alert('Pemesanan Anda telah dikirimkan via WhatsApp. Mohon tunggu konfirmasi dari kami!');
+                bookingForm.reset(); // Reset form after submission
+            });
+
+            /**
+             * Redirects to the CiciFood link in a new tab.
+             */
+            ciciFoodLink.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetUrl = this.getAttribute('data-target-url');
+                if (targetUrl) {
+                    window.open(targetUrl, '_blank');
+                }
+            });
+
+            /**
+             * Implements Intersection Observer for section animations.
+             * Elements fade in and slide up when they become visible.
+             */
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1 // When 10% of the element is visible
             };
-            const pricePerHour = servicePrices[service];
-            const totalPrice = pricePerHour * duration;
 
-            const message = `Halo Hanzplay, saya ingin memesan:\n\n` +
-                `Nama: ${name}\n` +
-                `No. HP: ${phone}\n` +
-                `Layanan: ${serviceText}\n` +
-                `Tanggal: ${date}\n` +
-                `Waktu Mulai: ${time}\n` +
-                `Durasi: ${duration} jam\n` +
-                `Total: Rp${totalPrice.toLocaleString('id-ID')}\n` +
-                `Catatan: ${notes || '-'}`;
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        entry.target.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+                        observer.unobserve(entry.target); // Stop observing after it becomes visible
+                    }
+                });
+            }, observerOptions);
 
-            // Open WhatsApp with the message
-            const whatsappUrl = `https://wa.me/6285716071641?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
-
-            // Reset form
-            this.reset();
-
-            // Show success message
-            alert('Pesanan Anda telah dikirim! Kami akan menghubungi Anda via WhatsApp untuk konfirmasi. Terima kasih!');
+            // Apply animation to sections (excluding hero which has its own)
+            document.querySelectorAll('section:not(.hero) .section-title, .service-card, .game-card, .testimonial-card, .about-content, .about-img, .contact-form, .cici-food').forEach(el => {
+                el.style.opacity = '0'; // Set initial opacity to 0
+                el.style.transform = 'translateY(20px)'; // Set initial position below
+                observer.observe(el);
+            });
         });
-
-        // Set minimum date for date picker (today)
-        document.getElementById('date').min = new Date().toISOString().split('T')[0];
-
-        // Set default time to current time + 1 hour, rounded to nearest 30 minutes
-        const now = new Date();
-        let currentHour = now.getHours();
-        let currentMinute = now.getMinutes();
-
-        // Round to nearest 30 minutes and add 1 hour
-        if (currentMinute > 30) {
-            currentHour += 2; // Go to next hour and next 30 min mark
-            currentMinute = 0;
-        } else if (currentMinute > 0 && currentMinute <= 30) {
-            currentHour += 1;
-            currentMinute = 30;
-        } else {
-            currentHour += 1;
-            currentMinute = 0;
-        }
-
-        // Format to HH:MM
-        const defaultTime = `${String(currentHour).padStart(2, '0')}:${String(currentMinute).padStart(2, '0')}`;
-        document.getElementById('time').value = defaultTime;
     </script>
 </body>
 
