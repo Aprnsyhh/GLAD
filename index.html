@@ -6,31 +6,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gamer's Lounge for Amusement & Drinks - Rental PlayStation Premium di Tangerang</title>
     <link rel="icon" href="https://i.imgur.com/tujIfqk.jpeg" type="image/jpeg">
-    <!-- Font Awesome untuk ikon sosial media dan hamburger -->
+
+    <!-- Font Awesome for social media and hamburger icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
     <style>
         /* ==========================================================================
-           Variabel CSS untuk konsistensi warna dan font
+           CSS Variables for color and font consistency
            ========================================================================== */
         :root {
             --primary: #0d6efd;
-            /* Biru cerah */
+            /* Bright blue */
             --secondary: #ffc107;
-            /* Kuning cerah */
+            /* Bright yellow */
             --dark: #212529;
-            /* Hitam pekat */
+            /* Deep black */
             --light: #f8f9fa;
-            /* Abu-abu sangat terang */
+            /* Very light gray */
             --text-color: #333;
-            /* Warna teks standar */
+            /* Standard text color */
             --gradient-blue: linear-gradient(135deg, #0d6efd, #0056b3);
-            /* Gradien untuk elemen tertentu */
+            /* Gradient for specific elements */
             --shadow-light: 0 5px 15px rgba(0, 0, 0, 0.08);
             --shadow-medium: 0 8px 25px rgba(0, 0, 0, 0.12);
         }
 
         /* ==========================================================================
-           Reset CSS dasar untuk konsistensi di berbagai browser
+           Basic CSS Reset for cross-browser consistency
            ========================================================================== */
         * {
             margin: 0;
@@ -40,16 +42,16 @@
         }
 
         /* ==========================================================================
-           Gaya Global
+           Global Styles
            ========================================================================== */
         body {
             background-color: var(--light);
             color: var(--text-color);
             line-height: 1.6;
             scroll-behavior: smooth;
-            /* Gulir halus ke anchor link */
+            /* Smooth scroll to anchor links */
             overflow-x: hidden;
-            /* Mencegah scroll horizontal yang tidak diinginkan */
+            /* Prevent unwanted horizontal scroll */
         }
 
         .container {
@@ -57,15 +59,15 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 15px;
-            /* Padding samping untuk responsivitas */
+            /* Side padding for responsiveness */
         }
 
         section {
             padding: 80px 0;
-            /* Padding vertikal untuk setiap bagian */
+            /* Vertical padding for each section */
             transition: padding 0.3s ease-in-out;
             position: relative;
-            /* Diperlukan untuk efek animasi */
+            /* Required for animation effects */
         }
 
         h1,
@@ -78,7 +80,7 @@
 
         h1 {
             font-size: 3.5rem;
-            /* Ukuran font lebih besar untuk judul utama */
+            /* Larger font size for main title */
         }
 
         h2 {
@@ -97,7 +99,7 @@
             max-width: 100%;
             height: auto;
             display: block;
-            /* Menghilangkan spasi bawah pada gambar */
+            /* Remove bottom spacing on images */
         }
 
         /* ==========================================================================
@@ -107,7 +109,7 @@
             background-color: var(--primary);
             color: white;
             padding: 15px 0;
-            /* Padding lebih ramping untuk header */
+            /* Slimmer padding for header */
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             position: fixed;
             width: 100%;
@@ -124,7 +126,7 @@
 
         .logo {
             font-size: 28px;
-            /* Ukuran font logo sedikit lebih besar */
+            /* Slightly larger logo font size */
             font-weight: bold;
             display: flex;
             align-items: center;
@@ -135,10 +137,10 @@
 
         .logo img {
             height: 45px;
-            /* Ukuran logo gambar sedikit lebih besar */
+            /* Slightly larger logo image size */
             margin-right: 10px;
             filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
-            /* Efek shadow pada logo */
+            /* Shadow effect on logo */
         }
 
         /* ==========================================================================
@@ -154,7 +156,7 @@
 
         nav ul li {
             margin-left: 30px;
-            /* Jarak antar item menu */
+            /* Spacing between menu items */
         }
 
         nav ul li a {
@@ -163,15 +165,15 @@
             font-weight: 500;
             transition: all 0.3s ease;
             position: relative;
-            /* Untuk efek underline */
+            /* For underline effect */
             padding-bottom: 5px;
-            /* Ruang untuk underline */
+            /* Space for underline */
         }
 
         nav ul li a:hover {
             color: var(--secondary);
             transform: translateY(-2px);
-            /* Sedikit naik saat hover */
+            /* Slightly lift on hover */
         }
 
         nav ul li a::after {
@@ -197,7 +199,7 @@
             border: none;
             cursor: pointer;
             padding: 10px;
-            /* Area klik yang lebih besar */
+            /* Larger click area */
             outline: none;
             position: relative;
             width: 35px;
@@ -222,18 +224,18 @@
 
         .hamburger-menu .bar:nth-child(2) {
             top: 11px;
-            /* Sesuaikan posisi tengah */
+            /* Adjust center position */
         }
 
         .hamburger-menu .bar:nth-child(3) {
             top: 22px;
-            /* Sesuaikan posisi bawah */
+            /* Adjust bottom position */
         }
 
         /* Hamburger active state (transforms into 'X') */
         .hamburger-menu.active .bar:nth-child(1) {
             transform: translateY(11px) rotate(45deg);
-            /* Pindah ke tengah, lalu putar */
+            /* Move to center, then rotate */
         }
 
         .hamburger-menu.active .bar:nth-child(2) {
@@ -242,7 +244,7 @@
 
         .hamburger-menu.active .bar:nth-child(3) {
             transform: translateY(-11px) rotate(-45deg);
-            /* Pindah ke tengah, lalu putar */
+            /* Move to center, then rotate */
         }
 
         /* ==========================================================================
@@ -252,15 +254,15 @@
             background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://i.imgur.com/tujIfqk.jpeg') no-repeat center center/cover;
             color: white;
             min-height: 85vh;
-            /* Tinggi minimum agar konten tetap terlihat di layar besar */
+            /* Minimum height for content to be visible on large screens */
             display: flex;
             align-items: center;
             text-align: center;
             margin-top: 75px;
-            /* Offset dari fixed header */
+            /* Offset from fixed header */
             position: relative;
             overflow: hidden;
-            /* Pastikan tidak ada scroll saat ada animasi */
+            /* Ensure no scroll when there's animation */
         }
 
         .hero-content {
@@ -272,21 +274,21 @@
             animation-delay: 0.5s;
             position: relative;
             z-index: 2;
-            /* Pastikan konten di atas overlay */
+            /* Ensure content is above overlay */
         }
 
         .hero h1 {
             color: white;
             font-size: 4rem;
-            /* Ukuran judul lebih besar */
+            /* Larger title size */
             margin-bottom: 25px;
             text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
-            /* Tambahkan shadow untuk keterbacaan */
+            /* Add shadow for readability */
         }
 
         .hero p {
             font-size: 1.35rem;
-            /* Ukuran teks paragraf lebih besar */
+            /* Larger paragraph text size */
             margin-bottom: 40px;
             text-shadow: 1px 1px 6px rgba(0, 0, 0, 0.4);
         }
@@ -299,27 +301,27 @@
             background-color: var(--secondary);
             color: var(--dark);
             padding: 14px 35px;
-            /* Padding lebih besar */
+            /* Larger padding */
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            /* Font lebih tebal */
+            /* Thicker font */
             transition: all 0.3s ease;
             margin: 8px;
-            /* Jarak antar tombol */
+            /* Spacing between buttons */
             border: none;
             cursor: pointer;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-transform: uppercase;
-            /* Huruf kapital */
+            /* Uppercase letters */
             letter-spacing: 0.5px;
         }
 
         .btn:hover {
             background-color: #ffda6a;
-            /* Warna hover sedikit lebih terang */
+            /* Slightly lighter hover color */
             transform: translateY(-5px);
-            /* Efek naik yang lebih terasa */
+            /* More noticeable lift effect */
             box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
         }
 
@@ -329,11 +331,11 @@
         .section-title {
             text-align: center;
             margin-bottom: 60px;
-            /* Jarak bawah lebih besar */
+            /* Larger bottom margin */
             transition: transform 0.3s ease-out, opacity 0.3s ease-out;
             position: relative;
             padding-bottom: 10px;
-            /* Ruang untuk underline */
+            /* Space for underline */
         }
 
         .section-title h2 {
@@ -341,18 +343,18 @@
             color: var(--dark);
             position: relative;
             display: inline-block;
-            /* Agar underline hanya selebar teks */
+            /* So underline is only as wide as text */
         }
 
         .section-title h2::after {
             content: '';
             display: block;
             width: 70px;
-            /* Lebar underline */
+            /* Underline width */
             height: 4px;
             background-color: var(--primary);
             margin: 10px auto 0;
-            /* Posisikan di tengah */
+            /* Center position */
             border-radius: 2px;
         }
 
@@ -362,53 +364,53 @@
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            /* Ukuran kartu lebih besar */
+            /* Larger card size */
             gap: 40px;
-            /* Jarak antar kartu lebih besar */
+            /* Larger spacing between cards */
         }
 
         .service-card {
             background: white;
             border-radius: 15px;
-            /* Sudut lebih membulat */
+            /* More rounded corners */
             overflow: hidden;
             box-shadow: var(--shadow-light);
             transition: all 0.4s ease;
-            /* Transisi lebih halus */
+            /* Smoother transition */
             display: flex;
             flex-direction: column;
-            /* Konten diatur dalam kolom */
+            /* Content arranged in columns */
             position: relative;
         }
 
         .service-card:hover {
             transform: translateY(-12px);
-            /* Efek naik yang lebih signifikan */
+            /* More significant lift effect */
             box-shadow: var(--shadow-medium);
         }
 
         .service-card img {
             width: 100%;
             height: 220px;
-            /* Tinggi gambar lebih seragam */
+            /* More uniform image height */
             object-fit: cover;
             transition: transform 0.4s ease;
         }
 
         .service-card img:hover {
             transform: scale(1.05);
-            /* Zoom in gambar saat hover */
+            /* Zoom in image on hover */
         }
 
         .service-content {
             padding: 25px;
-            /* Padding konten lebih besar */
+            /* Larger content padding */
             flex-grow: 1;
-            /* Konten mengisi sisa ruang */
+            /* Content fills remaining space */
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            /* Untuk mendorong tombol ke bawah */
+            /* To push button to bottom */
         }
 
         .service-content h3 {
@@ -421,23 +423,23 @@
             font-size: 0.95rem;
             color: #555;
             flex-grow: 1;
-            /* Deskripsi mengisi ruang */
+            /* Description fills space */
         }
 
         .price {
             font-weight: bold;
             color: var(--primary);
             font-size: 1.3rem;
-            /* Ukuran harga lebih menonjol */
+            /* More prominent price size */
             margin-top: 15px;
             margin-bottom: 20px;
         }
 
         .service-card .btn {
             width: 100%;
-            /* Tombol memenuhi lebar card */
+            /* Button fills card width */
             margin: 0;
-            /* Hapus margin agar rapi di dalam card */
+            /* Remove margin for neatness inside card */
             font-size: 0.9rem;
             padding: 10px 20px;
         }
@@ -447,17 +449,17 @@
            ========================================================================== */
         .about {
             background-color: #f1f8ff;
-            /* Warna latar belakang sedikit berbeda */
+            /* Slightly different background color */
             padding: 100px 0;
-            /* Padding lebih besar */
+            /* Larger padding */
         }
 
         .about-grid {
             display: grid;
             grid-template-columns: 1fr 1.2fr;
-            /* Konten deskripsi sedikit lebih lebar */
+            /* Description content slightly wider */
             gap: 60px;
-            /* Jarak antar kolom lebih besar */
+            /* Larger spacing between columns */
             align-items: center;
         }
 
@@ -480,7 +482,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 2.5rem;
-            /* Jarak antar game card lebih besar */
+            /* Larger spacing between game cards */
             margin-top: 2rem;
         }
 
@@ -500,7 +502,7 @@
         .game-card img {
             width: 100%;
             height: 180px;
-            /* Tinggi gambar game */
+            /* Game image height */
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -522,7 +524,7 @@
         .game-info p {
             color: #666;
             margin-bottom: 0;
-            /* Hapus margin bottom default */
+            /* Remove default bottom margin */
             font-size: 0.9rem;
         }
 
@@ -531,15 +533,15 @@
            ========================================================================== */
         .cici-food {
             background-color: #fff3cd;
-            /* Warna kuning yang lebih lembut */
+            /* Softer yellow color */
             padding: 80px 0;
             text-align: center;
             border-radius: 15px;
-            /* Sudut membulat */
+            /* Rounded corners */
             margin: 40px auto;
-            /* Margin atas dan bawah, auto untuk tengah */
+            /* Top and bottom margin, auto for center */
             max-width: 1000px;
-            /* Batasi lebar */
+            /* Limit width */
             box-shadow: var(--shadow-light);
         }
 
@@ -562,7 +564,7 @@
            ========================================================================== */
         .testimonials {
             background: var(--gradient-blue);
-            /* Gunakan gradien yang sudah didefinisikan */
+            /* Use predefined gradient */
             color: white;
             padding: 100px 0;
         }
@@ -575,14 +577,14 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 35px;
-            /* Jarak antar testimonial card */
+            /* Spacing between testimonial cards */
         }
 
         .testimonial-card {
             background: rgba(255, 255, 255, 0.15);
-            /* Background lebih solid tapi tetap transparan */
+            /* More solid but still transparent background */
             backdrop-filter: blur(8px);
-            /* Blur lebih lembut */
+            /* Softer blur */
             padding: 35px;
             border-radius: 15px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
@@ -603,7 +605,7 @@
             font-size: 1.1rem;
             line-height: 1.7;
             text-align: center;
-            /* Teks kutipan di tengah */
+            /* Quote text centered */
         }
 
         .testimonial-card .author {
@@ -611,55 +613,56 @@
             display: flex;
             align-items: center;
             margin-top: auto;
-            /* Dorong ke bawah */
+            /* Push to bottom */
             justify-content: center;
-            /* Pusatkan di mobile/desktop */
+            /* Center on mobile/desktop */
             padding-top: 15px;
-            /* Pemisah dari quote */
+            /* Separator from quote */
             border-top: 1px solid rgba(255, 255, 255, 0.2);
         }
 
         .testimonial-card .author img {
             width: 60px;
-            /* Ukuran gambar author lebih besar */
+            /* Larger author image size */
             height: 60px;
             border-radius: 50%;
             margin-right: 15px;
             object-fit: cover;
             border: 3px solid var(--secondary);
-            /* Border kuning pada gambar author */
+            /* Yellow border on author image */
         }
 
         /* ==========================================================================
            Contact Section
            ========================================================================== */
-        .contact-form {
+        .contact-form,
+        .payment-section {
             background: white;
             padding: 50px;
-            /* Padding lebih besar */
+            /* Larger padding */
             border-radius: 15px;
             box-shadow: var(--shadow-medium);
-            /* Shadow lebih menonjol */
+            /* More prominent shadow */
             max-width: 700px;
-            /* Lebar form lebih besar */
+            /* Wider form */
             margin: 0 auto;
             text-align: center;
-            /* Pusatkan tombol submit */
+            /* Center submit button */
         }
 
         .form-group {
             margin-bottom: 25px;
-            /* Jarak antar form group */
+            /* Spacing between form groups */
             text-align: left;
-            /* Teks label tetap kiri */
+            /* Label text remains left */
         }
 
         .form-group label {
             display: block;
             margin-bottom: 8px;
-            /* Jarak antara label dan input */
+            /* Spacing between label and input */
             font-weight: 600;
-            /* Label lebih tebal */
+            /* Thicker label */
             color: var(--dark);
             font-size: 1.1rem;
         }
@@ -669,11 +672,11 @@
         .form-group select {
             width: 100%;
             padding: 14px;
-            /* Padding input lebih besar */
+            /* Larger input padding */
             border: 1px solid #ccc;
-            /* Border lebih soft */
+            /* Softer border */
             border-radius: 8px;
-            /* Sudut lebih membulat */
+            /* More rounded corners */
             font-size: 17px;
             transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
@@ -683,23 +686,123 @@
         .form-group select:focus {
             border-color: var(--primary);
             box-shadow: 0 0 0 4px rgba(13, 110, 253, 0.2);
-            /* Shadow focus yang lebih halus */
+            /* Softer focus shadow */
             outline: none;
         }
 
         .form-group textarea {
             height: 150px;
-            /* Tinggi textarea lebih besar */
+            /* Larger textarea height */
             resize: vertical;
         }
 
-        .contact-form .btn {
+        .contact-form .btn,
+        .payment-section .btn {
             width: auto;
-            /* Biarkan tombol mengambil lebar sesuai konten */
+            /* Let button take width based on content */
             padding: 15px 40px;
             font-size: 1.1rem;
             margin-top: 20px;
         }
+
+        /* Styles for Payment Section */
+        .payment-section {
+            display: none;
+            /* Hidden by default */
+            text-align: left;
+            padding-top: 20px;
+        }
+
+        .payment-section h3 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: var(--dark);
+        }
+
+        .payment-details {
+            margin-bottom: 30px;
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            border: 1px solid #e9ecef;
+        }
+
+        .payment-details p {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            color: #495057;
+        }
+
+        .payment-details strong {
+            color: var(--dark);
+        }
+
+        .payment-details .account-info {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-top: 5px;
+            word-break: break-all;
+        }
+
+        .payment-qr {
+            text-align: center;
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+
+        .payment-qr img {
+            max-width: 250px;
+            width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            display: inline-block;
+            /* To center the image */
+        }
+
+        .payment-instructions {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .payment-method-selection {
+            margin-top: 20px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .payment-method-selection label {
+            display: inline-flex;
+            align-items: center;
+            margin: 0 15px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            color: var(--dark);
+        }
+
+        .payment-method-selection input[type="radio"] {
+            margin-right: 8px;
+            transform: scale(1.2);
+            cursor: pointer;
+        }
+
+        .payment-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            /* Allow wrapping on small screens */
+        }
+
+        .payment-buttons .btn {
+            margin: 0;
+            /* Remove default margin */
+        }
+
 
         /* ==========================================================================
            Footer Styles
@@ -708,15 +811,15 @@
             background-color: var(--dark);
             color: white;
             padding: 60px 0 30px;
-            /* Padding lebih besar */
+            /* Larger padding */
         }
 
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            /* Kolom footer lebih lebar */
+            /* Wider footer columns */
             gap: 40px;
-            /* Jarak antar kolom footer */
+            /* Spacing between footer columns */
             margin-bottom: 50px;
             text-align: left;
         }
@@ -764,37 +867,37 @@
         .footer-col ul li a:hover {
             color: white;
             transform: translateX(5px);
-            /* Efek geser saat hover */
+            /* Slide effect on hover */
             display: inline-block;
         }
 
         .social-links {
             display: flex;
             gap: 18px;
-            /* Jarak antar ikon sosial */
+            /* Spacing between social icons */
             margin-top: 20px;
         }
 
         .social-links a {
             color: white;
             background: rgba(255, 255, 255, 0.15);
-            /* Warna background ikon lebih terang */
+            /* Lighter icon background color */
             width: 45px;
-            /* Ukuran ikon lebih besar */
+            /* Larger icon size */
             height: 45px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.2rem;
-            /* Ukuran ikon */
+            /* Icon size */
             transition: all 0.3s ease;
         }
 
         .social-links a:hover {
             background: var(--primary);
             transform: translateY(-5px) scale(1.1);
-            /* Efek naik dan sedikit membesar */
+            /* Lift and slightly enlarge effect */
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
         }
 
@@ -810,7 +913,7 @@
         .footer-map {
             width: 100%;
             height: 280px;
-            /* Tinggi peta lebih besar */
+            /* Larger map height */
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -885,19 +988,19 @@
 
             .about-content {
                 text-align: center;
-                /* Pusatkan teks tentang kami */
+                /* Center "about us" text */
             }
 
             .about-content p {
                 max-width: 600px;
-                /* Batasi lebar paragraf agar tidak terlalu panjang */
+                /* Limit paragraph width to prevent being too long */
                 margin-left: auto;
                 margin-right: auto;
             }
 
             .footer-grid {
                 text-align: center;
-                /* Pusatkan footer di mobile */
+                /* Center footer on mobile */
             }
 
             .footer-col h3::after {
@@ -942,7 +1045,7 @@
                 transition: right 0.4s ease-in-out;
                 z-index: 999;
                 align-items: center;
-                /* Pusatkan item menu */
+                /* Center menu items */
             }
 
             nav ul.active {
@@ -953,14 +1056,14 @@
                 margin: 15px 0;
                 /* Vertical spacing */
                 width: 80%;
-                /* Lebar item menu */
+                /* Menu item width */
             }
 
             nav ul li a {
                 padding: 12px 20px;
                 text-align: center;
                 border-radius: 8px;
-                /* Sudut membulat pada link menu */
+                /* Rounded corners on menu links */
             }
 
             nav ul li a:hover {
@@ -1006,9 +1109,9 @@
             .game-card,
             .testimonial-card {
                 margin: 0 auto;
-                /* Pusatkan kartu */
+                /* Center cards */
                 max-width: 400px;
-                /* Batasi lebar kartu di mobile */
+                /* Limit card width on mobile */
             }
 
             .cici-food {
@@ -1019,7 +1122,8 @@
                 font-size: 1.05rem;
             }
 
-            .contact-form {
+            .contact-form,
+            .payment-section {
                 padding: 30px 20px;
             }
 
@@ -1034,8 +1138,14 @@
                 font-size: 16px;
             }
 
-            .contact-form .btn {
+            .contact-form .btn,
+            .payment-section .btn {
                 padding: 12px 30px;
+                font-size: 1rem;
+            }
+
+            .payment-method-selection label {
+                margin: 0 10px;
                 font-size: 1rem;
             }
         }
@@ -1073,7 +1183,7 @@
 
             nav ul {
                 width: 250px;
-                /* Lebar menu samping lebih kecil */
+                /* Smaller side menu width */
             }
 
             .hero {
@@ -1136,8 +1246,7 @@
     <header>
         <div class="container header-container">
             <a href="#home" class="logo" aria-label="GLAD Home">
-                <img src="https://i.imgur.com/tujIfqk.jpeg"
-                    alt="GLAD Logo - Modern blue and yellow gaming controller icon" loading="lazy" />
+                <img src="https://i.imgur.com/tujIfqk.jpeg" alt="GLAD Logo - Modern blue and yellow gaming controller icon" loading="lazy" />
                 GLAD
             </a>
             <button class="hamburger-menu" aria-label="Toggle navigation">
@@ -1191,7 +1300,7 @@
                             <p>Pengalaman next-gen gaming dengan 4K 120fps, ray tracing, dan controller DualSense haptic
                                 feedback.</p>
                             <p class="price">Rp Comingsoon/jam</p>
-                            <a href="#contact" class="btn">Comingsoon</a>
+                            <a href="#contact" class="btn" data-service-value="ps5-pro-comingsoon">Comingsoon</a>
                         </div>
                     </div>
                     <div class="service-card">
@@ -1202,7 +1311,7 @@
                             <h3>PlayStation 4 PRO</h3>
                             <p>Gaming 4K pada konsol legendaris dengan koleksi game eksklusif terlengkap.</p>
                             <p class="price">Rp 8.000/jam</p>
-                            <a href="#contact" class="btn">Pesan Sekarang</a>
+                            <a href="#contact" class="btn" data-service-value="ps4-pro">Pesan Sekarang</a>
                         </div>
                     </div>
                     <div class="service-card">
@@ -1212,7 +1321,7 @@
                             <h3>PlayStation 3</h3>
                             <p>Fitur backward compatibility kemampuan memainkan game dalam resolusi 1080p (Full HD).</p>
                             <p class="price">Rp 5.000/jam</p>
-                            <a href="#contact" class="btn">Pesan Sekarang</a>
+                            <a href="#contact" class="btn" data-service-value="ps3">Pesan Sekarang</a>
                         </div>
                     </div>
                     <div class="service-card">
@@ -1223,7 +1332,7 @@
                             <h3>VIP Room</h3>
                             <p>Ruang privat untuk 4 pemain dengan 2 PlayStation, sofa premium, dan minuman gratis.</p>
                             <p class="price">Rp Comingsoon/jam</p>
-                            <a href="#contact" class="btn">Comingsoon</a>
+                            <a href="#contact" class="btn" data-service-value="vip-room-comingsoon">Comingsoon</a>
                         </div>
                     </div>
                 </div>
@@ -1376,7 +1485,8 @@
                     <h2>Order Booking</h2>
                     <p>Pesan sekarang atau tanyakan informasi lebih lanjut</p>
                 </div>
-                <div class="contact-form">
+                <!-- Booking Form -->
+                <div class="contact-form" id="bookingFormContainer">
                     <form id="bookingForm" aria-label="Form Pemesanan PlayStation">
                         <div class="form-group">
                             <label for="name">Nama Lengkap</label>
@@ -1394,10 +1504,10 @@
                             <label for="service">Pilih Layanan</label>
                             <select id="service" name="service" required>
                                 <option value="">-- Pilih Layanan --</option>
-                                <option value="ps5-pro">PlayStation 5 PRO (Rp Comingsoon/jam)</option>
-                                <option value="ps4-pro">PlayStation 4 (Rp 8.000/jam)</option>
+                                <option value="ps5-pro">PlayStation 5 PRO (Comingsoon)</option>
+                                <option value="ps4-pro">PlayStation 4 PRO (Rp 8.000/jam)</option>
                                 <option value="ps3">PlayStation 3 (Rp 5.000/jam)</option>
-                                <option value="vip-room">VIP Room (Rp Comingsoon/jam)</option>
+                                <option value="vip-room">VIP Room (Comingsoon)</option>
                             </select>
                         </div>
                         <div class="form-group">
@@ -1417,8 +1527,52 @@
                             <textarea id="message" name="message" rows="5"
                                 placeholder="Tuliskan pertanyaan atau permintaan khusus Anda"></textarea>
                         </div>
-                        <button type="submit" class="btn">Kirim Pesanan</button>
+                        <button type="submit" class="btn">Lanjutkan ke Pembayaran</button>
                     </form>
+                </div>
+
+                <!-- Payment Section (Initially Hidden) -->
+                <div class="payment-section" id="paymentSection">
+                    <h3>Detail Pembayaran</h3>
+                    <p class="payment-instructions">
+                        <strong>transfer total pembayaran ke rekening di bawah ini atau scan QRIS.
+                        Setelah selesai, klik "Saya Sudah Bayar, Konfirmasi Pesanan" untuk mengirim bukti pembayaran
+                        via WhatsApp.</strong>
+                    </p>
+
+                    <div class="payment-details">
+                        <p>Total yang harus dibayar: <strong id="totalPaymentAmount">Rp 0</strong></p>
+                        <p><strong>Transfer Bank BCA</strong></p>
+                        <p>Nama Rekening: <span class="account-info">GLAD LOUNGE</span></p>
+                        <p>Nomor Rekening: <span class="account-info">4760-27-5854</span></p>
+                        <p style="font-size: 0.9em; color: #000000; margin-top: 10px; background-color: rgba(0, 238, 255, 0.7); padding: 5px 10px; border-radius: 4px; display: inline-block;">
+                            <strong>Pastikan nama dan nomor rekening sudah benar.</strong>
+                        </p>
+                    </div>
+
+                    <div class="payment-qr">
+                        <p><strong>Atau Scan QRIS ini:</strong></p>
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/6746d754-da1f-49a3-b879-2072e3c5f110.png"
+                            alt="QRIS Code for Payment" loading="lazy">
+                        <p style="font-size: 0.9em; color: #888; margin-top: 10px;">
+                            *Scan dengan aplikasi pembayaran favorit Anda (Dana, OVO, GoPay, LinkAja, dll.).
+                        </p>
+                    </div>
+
+                    <div class="payment-method-selection">
+                        <p style="margin-bottom: 15px; font-weight: 600;">Pilih Metode Pembayaran Anda:</p>
+                        <label>
+                            <input type="radio" name="paymentMethod" value="BCA Transfer" checked> Transfer BCA
+                        </label>
+                        <label>
+                            <input type="radio" name="paymentMethod" value="QRIS"> QRIS
+                        </label>
+                    </div>
+
+                    <div class="payment-buttons">
+                        <button type="button" class="btn" id="confirmPaymentBtn">Saya Sudah Bayar, Konfirmasi Pesanan</button>
+                        <button type="button" class="btn" id="backToFormBtn" style="background-color: #6c757d; color: white;">Kembali ke Form</button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -1455,7 +1609,7 @@
                 <div class="social-links">
                     <a href="https://www.facebook.com/gladlaounge/" target="_blank" aria-label="Facebook"><i
                             class="fab fa-facebook-f"></i></a>
-                    <a href="https://www.instagram.com/gladlaounge/" target="_blank" aria-label="Instagram"><i
+                    <a href="https://www.instagram.com/gladlounge/" target="_blank" aria-label="Instagram"><i
                             class="fab fa-instagram"></i></a>
                     <a href="https://twitter.com/gladlounge" target="_blank" aria-label="Twitter"><i
                             class="fab fa-twitter"></i></a>
@@ -1487,9 +1641,26 @@
             const navMenu = document.getElementById('main-nav').querySelector('ul');
             const navLinks = document.querySelectorAll('#main-nav ul li a');
             const header = document.querySelector('header');
+            const bookingFormContainer = document.getElementById('bookingFormContainer');
             const bookingForm = document.getElementById('bookingForm');
+            const paymentSection = document.getElementById('paymentSection');
+            const confirmPaymentBtn = document.getElementById('confirmPaymentBtn');
+            const backToFormBtn = document.getElementById('backToFormBtn');
+            const totalPaymentAmount = document.getElementById('totalPaymentAmount');
             const ciciFoodLink = document.getElementById('ciciFoodLink');
             const currentYearSpan = document.getElementById('currentYear');
+
+            // Store form data temporarily
+            let formData = {};
+            let calculatedTotalPrice = 0;
+
+            // Define service prices
+            const servicePrices = {
+                "ps5-pro": 0, // Comingsoon
+                "ps4-pro": 8000,
+                "ps3": 5000,
+                "vip-room": 0 // Comingsoon
+            };
 
             // Set current year in footer
             currentYearSpan.textContent = new Date().getFullYear();
@@ -1518,7 +1689,7 @@
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 50) {
                     header.style.padding = '10px 0';
-                    header.style.backgroundColor = 'rgba(13, 110, 253, 0.95)'; // Sedikit transparan saat scroll
+                    header.style.backgroundColor = 'rgba(13, 110, 253, 0.95)'; // Slightly transparent on scroll
                 } else {
                     header.style.padding = '15px 0';
                     header.style.backgroundColor = 'var(--primary)';
@@ -1539,48 +1710,96 @@
 
             /**
              * Handles the booking form submission.
-             * Form data is formatted and sent via WhatsApp.
+             * Validates form, calculates total price, and shows payment section.
              */
             bookingForm.addEventListener('submit', function (event) {
                 event.preventDefault(); // Prevent default form submission
 
                 // Get form values
                 const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value; // Email is now optional
+                const email = document.getElementById('email').value;
                 const phone = document.getElementById('phone').value;
                 const service = document.getElementById('service').value;
-                const duration = document.getElementById('duration').value;
+                const duration = parseInt(document.getElementById('duration').value);
                 const date = document.getElementById('date').value;
                 const time = document.getElementById('time').value;
                 const message = document.getElementById('message').value;
 
-                // Simple validation (email is no longer required)
+                // Simple validation
                 if (!name || !phone || !service || !duration || !date || !time) {
                     alert('Mohon lengkapi semua kolom yang wajib diisi (Nama Lengkap, Nomor Telepon, Layanan, Durasi, Tanggal, Waktu)!');
                     return;
                 }
 
-                // Format the message for WhatsApp
-                const whatsappMessage = `Halo GLAD Lounge, saya ingin melakukan booking dengan detail berikut:%0A%0A` +
-                    `*Nama:* ${name}%0A` +
-                    `*Email:* ${email || '-'}%0A` + // Use '-' if email is empty
-                    `*Telepon (WA):* ${phone}%0A` +
-                    `*Layanan:* ${service}%0A` +
-                    `*Durasi:* ${duration} jam%0A` +
-                    `*Tanggal:* ${date}%0A` +
-                    `*Waktu:* ${time}%0A` +
-                    `*Pesan Tambahan:* ${message || '-'}%0A%0A` +
-                    `Mohon konfirmasinya. Terima kasih!`;
+                // Check for "Comingsoon" services
+                if (service.includes("comingsoon")) {
+                    alert('Layanan ini masih "Comingsoon" dan belum bisa dipesan saat ini. Mohon pilih layanan lain.');
+                    return;
+                }
 
-                // Replace with your actual WhatsApp number
-                const whatsappNumber = '6285716071641'; // Example: 62 for Indonesia, remove leading 0
+                // Store form data
+                formData = { name, email, phone, service, duration, date, time, message };
 
+                // Calculate total price
+                const serviceBasePrice = servicePrices[service];
+                if (serviceBasePrice === 0) {
+                    calculatedTotalPrice = 0; // For "Comingsoon" services
+                    alert('Untuk layanan "Comingsoon", harga akan dikonfirmasi lebih lanjut via WhatsApp.');
+                } else {
+                    calculatedTotalPrice = serviceBasePrice * duration;
+                }
+
+                totalPaymentAmount.textContent = `Rp ${calculatedTotalPrice.toLocaleString('id-ID')}`;
+
+                // Hide booking form and show payment section
+                bookingFormContainer.style.display = 'none';
+                paymentSection.style.display = 'block';
+
+                // Scroll to the payment section
+                paymentSection.scrollIntoView({ behavior: 'smooth' });
+            });
+
+            /**
+             * Handles the "Saya Sudah Bayar, Konfirmasi Pesanan" button click.
+             * Formats message and redirects to WhatsApp.
+             */
+            confirmPaymentBtn.addEventListener('click', () => {
+                const selectedPaymentMethod = document.querySelector('input[name="paymentMethod"]:checked').value;
+                const serviceDisplayName = document.getElementById('service').options[document.getElementById('service').selectedIndex].text;
+
+                const whatsappMessage = `Halo GLAD Lounge, saya ingin mengkonfirmasi pesanan saya:%0A%0A` +
+                    `*Nama:* ${formData.name}%0A` +
+                    `*Email:* ${formData.email || '-'}%0A` +
+                    `*Telepon (WA):* ${formData.phone}%0A` +
+                    `*Layanan:* ${serviceDisplayName}%0A` +
+                    `*Durasi:* ${formData.duration} jam%0A` +
+                    `*Tanggal:* ${formData.date}%0A` +
+                    `*Waktu:* ${formData.time}%0A` +
+                    `*Pesan Tambahan:* ${formData.message || '-'}` +
+                    `%0A%0A*Total Pembayaran:* Rp ${calculatedTotalPrice.toLocaleString('id-ID')}%0A` +
+                    `*Metode Pembayaran:* ${selectedPaymentMethod}%0A%0A` +
+                    `Saya sudah melakukan pembayaran. Mohon konfirmasi pesanan saya. Terima kasih!`;
+
+                const whatsappNumber = '6285716071641'; // Your WhatsApp number
                 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
                 window.open(whatsappUrl, '_blank'); // Open in a new tab
 
+                // Reset form and hide payment section
                 alert('Pemesanan Anda telah dikirimkan via WhatsApp. Mohon tunggu konfirmasi dari kami!');
-                bookingForm.reset(); // Reset form after submission
+                bookingForm.reset();
+                paymentSection.style.display = 'none';
+                bookingFormContainer.style.display = 'block';
+            });
+
+            /**
+             * Handles the "Kembali ke Form" button click.
+             * Hides payment section and shows booking form.
+             */
+            backToFormBtn.addEventListener('click', () => {
+                paymentSection.style.display = 'none';
+                bookingFormContainer.style.display = 'block';
+                bookingFormContainer.scrollIntoView({ behavior: 'smooth' });
             });
 
             /**
